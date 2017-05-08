@@ -1,0 +1,12 @@
+<p></p> <p></p>
+<div class="page">
+    <button [class.displayNone]="prevPageDisplay" [disabled]="prevPageDisplay" (click)="gotoFirstPage()">|<</button> 
+    <button [class.displayNone]="prevPage5Display" [disabled]="prevPage5Display" (click)="gotoPrev5Page()"><<</button>
+    <button [class.displayNone]="prevPageDisplay" [disabled]="prevPageDisplay" (click)="gotoPrevPage()"><</button>
+    <button *ngFor="let p of pages" [class.active]="currPage===p" #mid  (click)="gotoPage(mid.innerHTML)">{{p}}</button>
+    <button [class.displayNone]="nextPageDisplay" [disabled]="nextPageDisplay" (click)="gotoNextPage()">></button>
+    <button [class.displayNone]="nextPage5Display" [disabled]="nextPage5Display" (click)="gotoNext5Page()">>></button>
+    <button [class.displayNone]="nextPageDisplay" [disabled]="nextPageDisplay" (click)="gotoEndPage()">>|</button>
+    <span  class="pageInput"><input type="text" #mypg /></span>
+    <button (click)="gotoPage(mypg.value)">GO</button>
+</div>

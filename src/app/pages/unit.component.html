@@ -1,0 +1,26 @@
+<div class="frommanger">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th *ngFor='let title of titles'>{{title}}</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let d of currPageDepts;let i=index">
+            <td *ngIf="d.isEdit"><input [(ngModel)]="d.id" /></td>
+            <td *ngIf="!d.isEdit">{{d.id}}</td>
+            <td *ngIf="d.isEdit"><input [(ngModel)]="d.name" /></td>
+            <td *ngIf="!d.isEdit">{{d.name}}</td>
+            <td *ngIf="d.isEdit"><input [(ngModel)]="d.date" type="date" /></td>
+            <td *ngIf="!d.isEdit">{{d.date}}</td>
+            <td>
+                <button  class="bgbtn" *ngIf="d.isEdit" (click)="save(i)">Save</button> &nbsp;
+                <button  *ngIf="d.isEdit" (click)="cancel(i)">Cancel</button>
+                <button  *ngIf="!d.isEdit" (click)="edit(i)">Edit</button> &nbsp;
+                <button  *ngIf="!d.isEdit"  (click)="delete(i)">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="frommanger">
+    <my-page [currPage]="currPage" [totalPageNum]="totalPageNum" (getPageData)='getPageData($event)'></my-page>
+</div>

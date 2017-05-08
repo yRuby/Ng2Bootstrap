@@ -1,0 +1,11 @@
+<div class="search">
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            Employee ID
+            <input type="text" class="form-control" placeholder="" #id (keyup)="search(id.value,name.value,date.value)" />            Name
+            <input type="text" class="form-control" placeholder="" #name (keyup)="search(id.value,name.value,date.value)" />            Joining dataes
+            <input type="text" class="form-control" placeholder="" #date (change)="search(id.value,name.value,date.value)" />
+        </div>
+        <button type="" class="btn btn-default" (click)="search(id.value,name.value,date.value)">Search</button>
+    </form>
+</div>

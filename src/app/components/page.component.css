@@ -1,0 +1,8 @@
+.page{margin:0;padding:0;list-style: none;}
+.page button{background:#fff;width:30px;height:30px;border:1px solid #999;margin:0 5px;text-align:center;line-height:30px;display:block;float:left;}
+.page button:hover{background:#ddd;}
+.page button.displayNone{background:#eee;border:1px solid #ddd;color:#ddd;}
+.page button.active{background:#31b0d5;color:#fff;}
+.pageInput{background:#fff;;width:28px;height:28px;border:1px solid #999;margin:0 5px;padding:0;text-align:center;display:block;float:left;}
+.pageInput input{width:24px;height:24px;border:none;text-align: center}
+.pageInput input:focus{outline:none;}

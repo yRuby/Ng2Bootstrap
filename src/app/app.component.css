@@ -1,0 +1,11 @@
+.sys{
+ padding: 30px;
+ width: 400px;
+ padding-bottom:20px;
+ 
+}
+.btn-group button{
+    background:#31b0d5;
+    color: #FFF;
+    height: 40px；
+}
