@@ -1,0 +1,21 @@
+.frommanger{
+    padding: 30px 30px 20px 30px;
+    text-align: center;
+}
+.frommanger table tr th{
+    text-align: center;
+}
+.frommanger button{
+    background: #31b0d5;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    height: 30px;
+    width: 54px;
+}
+.filed button{
+    width: 71px;
+    background: #31b0d5;
+    height: 34px;
+    color: #fff;
+}

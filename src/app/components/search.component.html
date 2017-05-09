@@ -2,9 +2,9 @@
     <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
             Employee ID
-            <input type="text" class="form-control" placeholder="" #id (keyup)="search(id.value,name.value,dateText.value)" />            Name
-            <input type="text" class="form-control" placeholder="" #name (keyup)="search(id.value,name.value,dateText.value)" />            Joining dataes
-            <input type="text" class="form-control" placeholder="" #dateText (change)="search(id.value,name.value,dateText.value)" value={{selDate}}
+            <input type="text" class="form-control" placeholder="" #id (keyup)="search(id.value,name.value,dateText.value)" [value]="searchId"/>            Name
+            <input type="text" class="form-control" placeholder="" #name (keyup)="search(id.value,name.value,dateText.value)" [value]="searchName" />            Joining dataes
+            <input type="text" class="form-control" placeholder="" #dateText (change)="search(id.value,name.value,dateText.value)" [value]="selDate"
             />
             <date-picker [value]="value" 
                          [minDate]="minDate" [maxDate]="maxDate" 
@@ -14,6 +14,6 @@
                          (selectedDate)='setDate($event)'>
            </date-picker>
         </div>
-        <button type="" class="btn btn-default" (click)="search(id.value,name.value,date.value)">Search</button>
+        <button type="" class="btn btn-default" (click)="search(id.value,name.value,dateText.value)">Search</button>
     </form>
 </div>

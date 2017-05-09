@@ -22,7 +22,10 @@
         "styles.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
-      "scripts": ["../node_modules/moment/min/moment.min.js"],
+      "scripts": [
+        "../node_modules/moment/min/moment.min.js",
+        "../node_modules/ng2-cookies/ng2-cookies.js"
+        ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
