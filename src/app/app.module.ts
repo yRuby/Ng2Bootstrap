@@ -14,7 +14,7 @@ import { SearchComponent } from './components/search.component';
 import { EmployeeComponent } from './pages/employee.component';
 import { UnitComponent } from './pages/unit.component';
 import { PageComponent } from './components/page.component';
-
+import { DatePickerComponent } from './components/datepicker.component';
 const APP_PROVIDERS = [
   AppState, Global,EmployeeService,UnitService
 ]
@@ -25,7 +25,8 @@ const APP_PROVIDERS = [
     SearchComponent,
     EmployeeComponent,
     UnitComponent,
-    PageComponent
+    PageComponent,
+    DatePickerComponent
   ],
   imports: [
     AlertModule.forRoot(),
