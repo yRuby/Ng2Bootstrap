@@ -13,7 +13,7 @@ import { Unit } from './unit'
  
 })
 export class UnitComponent implements OnInit  {
- titles = ['Employee ID','Name', 'Join Data', 'Operating' ] 
+ titles = ['Employee ID','Unit', 'Join Data', 'Operating' ] 
 
 currPageDepts:Unit[]=[];
   editDept:Unit;
@@ -74,7 +74,7 @@ currPageDepts:Unit[]=[];
         this.allDepts[this.currPage*this.pageSize-this.pageSize+i]=JSON.parse(JSON.stringify(this.currPageDepts[i]));
         this.appState.set('DEPTS', this.allDepts);
         this.editDept=new Unit();
-      /// }).catch((err) => { return false; });
+        /// }).catch((err) => { return false; });
     // console.log(JSON.stringify(this.allDepts));
     // console.log(JSON.stringify(this.currPageDepts));
   }
@@ -83,19 +83,19 @@ currPageDepts:Unit[]=[];
     this.currPageDepts[i].isEdit=false;
   }
   delete(i){
-    if(confirm("您确定要删除吗？")){
-      /// this.DeptService.delete(this.currPageDepts[i].id)
+    /// this.DeptService.delete(this.currPageDepts[i].id)
       /// .then(() => {
+    if(confirm("您确定要删除吗？")){
         this.currPageDepts.splice(i,1);
         this.allDepts.splice(this.currPage*this.pageSize-this.pageSize+i,1);
-        this.appState.set('DEPTS', this.allDepts);
-      /// }).catch((err) => { return false; });
+        this.appState.set('DEPTS', this.allDepts); 
+        /// }).catch((err) => { return false; });
       // console.log(JSON.stringify(this.allDepts));
       // console.log(JSON.stringify(this.currPageDepts));  
     }
   }
-  addDept(){
-     /// this.DeptService.create(new Dept())
+  addUnit(){
+    /// this.DeptService.create(new Dept())
       /// .then(() => {
         let blankDept={'id':'','name':'','isEdit':true};
         this.currPageDepts.push(blankDept);
@@ -103,7 +103,7 @@ currPageDepts:Unit[]=[];
         this.allDepts.splice(i,0,{'id':'','name':'','isEdit':true});
         this.appState.set('DEPTS', this.allDepts);
         this.editDept=new Unit();
-      /// }).catch((err) => { return false; });
+        /// }).catch((err) => { return false; });
 
     
     

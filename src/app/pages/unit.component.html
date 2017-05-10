@@ -1,6 +1,6 @@
 <div class="filed">
     <my-search (getSearchData)="getSearchData($event)"></my-search>
-    <button (click)="addUser()">Add</button><br /><br />
+    <button type="" class="btn btn-default" (click)="addUnit()">Add</button><br /><br />
 </div>
 <div class="frommanger">
     <table class="table table-bordered table-hover">
@@ -14,7 +14,7 @@
             <td *ngIf="!d.isEdit">{{d.id}}</td>
             <td *ngIf="d.isEdit"><input [(ngModel)]="d.name" /></td>
             <td *ngIf="!d.isEdit">{{d.name}}</td>
-            <td *ngIf="d.isEdit"><input [(ngModel)]="d.date" type="date" /></td>
+            <td *ngIf="d.isEdit"><input [(ngModel)]="d.date" /></td>
             <td *ngIf="!d.isEdit">{{d.date}}</td>
             <td>
                 <button class="bgbtn" *ngIf="d.isEdit" (click)="save(i)">Save</button> &nbsp;

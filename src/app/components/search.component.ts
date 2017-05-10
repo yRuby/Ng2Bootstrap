@@ -20,18 +20,11 @@ export class SearchComponent implements OnInit {
   private value:string='';
   ngOnInit(){
     this.minDate=moment().format('MM/DD/YYYY');
-    this.searchId=Cookie.get("id");
-    this.searchName=Cookie.get("name");
-    this.searchDate=Cookie.get("date");
-    
   }  
   @Output() public getSearchData = new EventEmitter<object>();
-  search(id,name,date){
-    date=date.replace("MM/DD/YYYY","");
-    this.getSearchData.emit({"id":id,"name":name,"date":date});
-    Cookie.set('id', id);
-    Cookie.set('name', name);
-    Cookie.set('date', date);
+  search(id,name,dateText){
+    dateText=dateText.replace("MM/DD/YYYY","");
+    this.getSearchData.emit({"id":id,"name":name,"date":dateText});
   }
   setDate(date){
     this.selDate = date;

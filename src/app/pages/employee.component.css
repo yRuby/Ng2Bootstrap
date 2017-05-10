@@ -13,3 +13,10 @@
     height: 30px;
     width: 54px;
 }
+.filed button{
+    width: 71px;
+    background: #31b0d5;
+    height: 34px;
+    color: #fff;
+    margin-top: -30px;
+}
