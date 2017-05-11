@@ -21,26 +21,33 @@ currPageDepts:Unit[]=[];
   currPage:number=1;
   pageSize:number=5;
   totalPageNum:number;
-  constructor(private appState:AppState, private DeptService: UnitService) { }
+  constructor(private appState:AppState, private UnitService: UnitService) { }
   ngOnInit(){
+    if(this.appState.state.hasOwnProperty('DEPTPAGE')) {
+      this.currPage=this.appState.get("DEPTPAGE");
+    }
     this.getAllData();
   }
   public getPageData(idx: number) {
     this.currPage=idx;
-    let s=(idx - 1) * this.pageSize;
-    let e=idx * this.pageSize;
+    if(this.currPage>this.totalPageNum){
+      this.currPage=1;
+    }
+    let s=(this.currPage - 1) * this.pageSize;
+    let e=this.currPage * this.pageSize;
     this.currPageDepts = this.allDepts.slice(s, e);
+    this.appState.set("DEPTPAGE",this.currPage);
   }
   public getAllData() {
     if(this.appState.hasOwnProperty('DEPTS')) {
       this.allDepts = this.appState.get('DEPTS');
     } else {
-      this.DeptService.getDepts()
+      this.UnitService.getDepts()
       .then((depts) => {
         this.appState.set('DEPTS', depts);
         this.allDepts = depts;
         this.totalPageNum=Math.floor((depts.length+this.pageSize-1)/this.pageSize); 
-        this.getPageData(1);
+        this.getPageData(this.currPage);
       }).catch((err) => { return false; });
     }
   }
@@ -58,7 +65,7 @@ currPageDepts:Unit[]=[];
       return mid && mname;
     });
     this.totalPageNum=Math.floor((this.allDepts.length+this.pageSize-1)/this.pageSize); 
-    this.getPageData(1);
+    this.getPageData(this.currPage);
   }
   edit(i){
     for(let j=0;j<this.currPageDepts.length;j++){
@@ -74,7 +81,7 @@ currPageDepts:Unit[]=[];
         this.allDepts[this.currPage*this.pageSize-this.pageSize+i]=JSON.parse(JSON.stringify(this.currPageDepts[i]));
         this.appState.set('DEPTS', this.allDepts);
         this.editDept=new Unit();
-        /// }).catch((err) => { return false; });
+      /// }).catch((err) => { return false; });
     // console.log(JSON.stringify(this.allDepts));
     // console.log(JSON.stringify(this.currPageDepts));
   }
@@ -83,13 +90,13 @@ currPageDepts:Unit[]=[];
     this.currPageDepts[i].isEdit=false;
   }
   delete(i){
-    /// this.DeptService.delete(this.currPageDepts[i].id)
-      /// .then(() => {
     if(confirm("您确定要删除吗？")){
+      /// this.DeptService.delete(this.currPageDepts[i].id)
+      /// .then(() => {
         this.currPageDepts.splice(i,1);
         this.allDepts.splice(this.currPage*this.pageSize-this.pageSize+i,1);
-        this.appState.set('DEPTS', this.allDepts); 
-        /// }).catch((err) => { return false; });
+        this.appState.set('DEPTS', this.allDepts);
+      /// }).catch((err) => { return false; });
       // console.log(JSON.stringify(this.allDepts));
       // console.log(JSON.stringify(this.currPageDepts));  
     }
@@ -103,7 +110,7 @@ currPageDepts:Unit[]=[];
         this.allDepts.splice(i,0,{'id':'','name':'','isEdit':true});
         this.appState.set('DEPTS', this.allDepts);
         this.editDept=new Unit();
-        /// }).catch((err) => { return false; });
+      /// }).catch((err) => { return false; });
 
     
     

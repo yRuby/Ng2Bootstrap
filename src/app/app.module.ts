@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search.component';
+import { UnitSearchComponent } from './components/unitsearch.component';
 import { EmployeeComponent } from './pages/employee.component';
 import { UnitComponent } from './pages/unit.component';
 import { PageComponent } from './components/page.component';
@@ -27,7 +28,8 @@ const APP_PROVIDERS = [
     EmployeeComponent,
     UnitComponent,
     PageComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    UnitSearchComponent
   ],
   imports: [
     AlertModule.forRoot(),

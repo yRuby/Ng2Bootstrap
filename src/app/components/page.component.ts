@@ -1,10 +1,10 @@
-import { Component, Input, Output, EventEmitter }    from '@angular/core';
+import { Component, Input, Output, EventEmitter,OnChanges }    from '@angular/core';
 @Component({
   selector: 'my-page',
   templateUrl: './page.component.html',
   styleUrls: [ './page.component.css' ]
 })
-export class PageComponent {
+export class PageComponent implements OnChanges{
     public pages: number[] = [];
     public prevPageDisplay: Boolean;
     public nextPageDisplay: Boolean;
@@ -27,6 +27,9 @@ export class PageComponent {
         }
     }
     get totalPageNum(): number { return this._totalPageNum; }
+    ngOnChanges(){
+        this.Init();
+    }
     public gotoPrevPage() {
         this.currPage--;
         this.Init();

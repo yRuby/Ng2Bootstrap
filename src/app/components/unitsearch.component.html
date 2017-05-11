@@ -1,0 +1,10 @@
+<div class="search">
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            Unit ID
+            <input type="text" class="form-control" placeholder="" #id (keyup)="search(id.value,name.value)"  [value]="unitId"/>            Unit
+            <input type="text" class="form-control" placeholder="" #name (keyup)="search(id.value,name.value)"  [value]="unitName"/>
+        </div>
+        <button type="" class="btn btn-default" (click)="search(id.value,name.value)">Search</button>
+    </form>
+</div>
