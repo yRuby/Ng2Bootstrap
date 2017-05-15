@@ -6,7 +6,8 @@ import { AlertModule } from 'ng2-bootstrap';
 import { AppState, Global } from '../services/app.service';
 import { EmployeeService } from  '../services/employee.service'
 import { UnitService } from  '../services/unit.service'
-
+import { InMemoryWebApiModule } from  'angular-in-memory-web-api';
+import { InMemoryDataService } from '../services/in-memory-data.service';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -36,7 +37,8 @@ const APP_PROVIDERS = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [ APP_PROVIDERS ],
   bootstrap: [AppComponent]

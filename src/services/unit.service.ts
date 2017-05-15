@@ -10,7 +10,7 @@ import { Unit } from '../app/pages/unit';
 export class UnitService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private deptsUrl = '../assets/unit.json'; 
+  private deptsUrl = 'EmployeeService/api/unit/'; 
 
   constructor(private http: Http) { }
 
@@ -20,7 +20,7 @@ getDepts(): Promise<Unit[]> {
                .then(response => response.json().data as Unit[])
                .catch(this.handleError);
   }
-
+/*
   getDept(id: number): Promise<Unit> {
     const url = `${this.deptsUrl}/${id}`;
     return this.http.get(url)
@@ -28,9 +28,9 @@ getDepts(): Promise<Unit[]> {
       .then(response => response.json().data as Unit)
       .catch(this.handleError);
   }
-
+*/
   delete(id: string): Promise<void> {
-    const url = `${this.deptsUrl}/${id}`;
+    const url = this.deptsUrl+id;
     return this.http.delete(url, {headers: this.headers})
       .toPromise()
       .then(() => null)
@@ -46,7 +46,7 @@ getDepts(): Promise<Unit[]> {
   }
 
   update(dept: Unit): Promise<Unit> {
-    const url = `${this.deptsUrl}/${dept.id}`;
+    const url = this.deptsUrl+dept.id;
     return this.http
       .put(url, JSON.stringify(dept), {headers: this.headers})
       .toPromise()
